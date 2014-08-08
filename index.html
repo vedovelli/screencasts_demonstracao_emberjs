@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo EmberJS</title>
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+	<script type="text/x-handlebars">
+		<h1>Demonstração EmberJS</h1>
+		<ul>
+			<li>{{#link-to 'index'}}Home{{/link-to}}</li>
+			<li>{{#link-to 'users'}}Usuários{{/link-to}}</li>
+		</ul>
+		{{outlet}}
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="users">
+		<div>
+			<h2>Rota "users" acessada!</h2>
+			<h3>Total of {{model.total}} beers!</h3> // Lembre-se que model é a promise retornada!
+			{{#each beer in model.beers}}
+				<p>{{beer.name}} [{{format-date beer.updated_at}}]<br><small>{{beer.description}}</small></p>
+			{{/each}}
+			{{outlet}}
+		</div>
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="users/teste">
+		<div>
+			<h3>Rota "teste" acessada!</h3>
+		</div>
+	</script>
+
+
+
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/handlebars-v1.3.0.js"></script>
+	<script type="text/javascript" src="scripts/vendor/ember.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/router.js"></script>
+	<script type="text/javascript" src="scripts/helpers.js"></script>
+</body>
+</html>
